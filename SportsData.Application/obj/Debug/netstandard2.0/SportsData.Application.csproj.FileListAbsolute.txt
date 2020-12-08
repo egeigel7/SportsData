@@ -1,0 +1,14 @@
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Application.deps.json
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Application.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Application.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Core.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Infrastructure.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Infrastructure.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\bin\Debug\netstandard2.0\SportsData.Core.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.csprojAssemblyReference.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.AssemblyInfoInputs.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.AssemblyInfo.cs
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.csproj.CoreCompileInputs.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.csproj.CopyComplete
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Application\obj\Debug\netstandard2.0\SportsData.Application.pdb

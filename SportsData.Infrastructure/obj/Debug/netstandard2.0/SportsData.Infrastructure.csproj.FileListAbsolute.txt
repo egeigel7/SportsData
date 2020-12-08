@@ -1,0 +1,12 @@
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\bin\Debug\netstandard2.0\SportsData.Infrastructure.deps.json
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\bin\Debug\netstandard2.0\SportsData.Infrastructure.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.AssemblyInfo.cs
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\bin\Debug\netstandard2.0\SportsData.Infrastructure.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\bin\Debug\netstandard2.0\SportsData.Core.dll
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\bin\Debug\netstandard2.0\SportsData.Core.pdb
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.csprojAssemblyReference.cache
+C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Infrastructure\obj\Debug\netstandard2.0\SportsData.Infrastructure.csproj.CopyComplete
