@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SportsData.Core.Entities.Nba
+namespace SportsData.Infrastructure.Dtos.NbaApi
 {
-    public class Team
+    public class NbaApiGameContestantDto
     {
         public string TeamId { get; set; }
         public string ShortName { get; set; }
         public string FullName { get; set; }
         public string NickName { get; set; }
         public string Logo { get; set; }
+        public NbaApiContestantScoreDto Score { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace SportsData.Core.Entities.Nba
+namespace SportsData.Infrastructure.Dtos.NbaApi
 {
-    public class Game
+    public class NbaApiGameDto
     {
-        public Game(string seasonYear, string league, string gameId, DateTime startTimeUTC, DateTime endTimeUTC, string arena, string city, string country, string clock, string gameDuration, string currentPeriod, string halftime, string endOfPeriod
-            , string seasonStage, string statusShortGame, string statusGame, Contestant vTeam, Contestant hTeam)
+        public NbaApiGameDto(string seasonYear, string league, string gameId, DateTime startTimeUTC, DateTime endTimeUTC, string arena, string city, string country, string clock, string gameDuration, string currentPeriod, string halftime, string endOfPeriod
+            , string seasonStage, string statusShortGame, string statusGame, NbaApiGameContestantDto vTeam, NbaApiGameContestantDto hTeam)
         {
             SeasonYear = seasonYear;
             League = league;
@@ -42,7 +44,7 @@ namespace SportsData.Core.Entities.Nba
         public string SeasonStage { get;}
         public string StatusShortGame { get; }
         public string StatusGame { get; }
-        public Contestant VTeam { get; }
-        public Contestant HTeam { get; }
+        public NbaApiGameContestantDto VTeam { get; }
+        public NbaApiGameContestantDto HTeam { get; }
     }
 }

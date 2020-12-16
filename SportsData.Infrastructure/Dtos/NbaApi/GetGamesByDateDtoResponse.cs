@@ -10,8 +10,8 @@ namespace SportsData.Infrastructure.Dtos.NbaApi
         public string Message { get; }
         public int Results { get; }
         public List<string> Filters { get; }
-        public List<Game> Games { get; }
-        public GetGamesByDateDtoResponse(int status, string message, int results, List<string> filters, List<Game> games)
+        public List<NbaApiGameDto> Games { get; }
+        public GetGamesByDateDtoResponse(int status, string message, int results, List<string> filters, List<NbaApiGameDto> games)
         {
             Status = status;
             Message = message;

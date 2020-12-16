@@ -3,12 +3,11 @@ using SportsData.Infrastructure.Dtos.NbaApi;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsData.Application.Services.Nba
+namespace SportsData.Application.Mappers.Nba
 {
-    public interface INbaApiService
+    public interface IGetGamesByDateResponseMapper
     {
-        Task<List<Game>> GetGamesByDate(DateTime date);
+        List<Game> Convert(GetGamesByDateDtoResponse response);
     }
 }

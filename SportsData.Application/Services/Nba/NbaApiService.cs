@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SportsData.Application.Mappers.Nba;
+using SportsData.Core.Entities.Nba;
 using SportsData.Infrastructure.Dtos.NbaApi;
+using SportsData.Infrastructure.Repositories.Nba;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,35 +14,21 @@ namespace SportsData.Application.Services.Nba
 {
     public class NbaApiService : INbaApiService
     {
-        HttpClient _client;
+        private readonly INbaApiRepository _repository;
+        private readonly IGetGamesByDateResponseMapper _mapper;
         private readonly int nbaSportsId = 4;
-        public NbaApiService()
+        public NbaApiService(INbaApiRepository repository, IGetGamesByDateResponseMapper mapper)
         {
-            _client = new HttpClient();
+            _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<GetGamesByDateDtoResponse> GetGamesByDate(DateTime date)
+        public async Task<List<Game>> GetGamesByDate(DateTime date)
         {
-            var formattedDate = date.ToString("yyyy-MM-dd");
-            var nbaApiUrl = $"https://api-nba-v1.p.rapidapi.com/games/date/{formattedDate}";
-            var request = new HttpRequestMessage
-            {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri(nbaApiUrl),
-                Headers =
-                {
-                    { "x-rapidapi-key", "ea61dbc290msh26d23555f5b2f27p15cf70jsn8fce5f15677a" },
-                    { "x-rapidapi-host", "api-nba-v1.p.rapidapi.com" },
-                },
-            };
-            using (var response = await _client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
-                var games = JObject.Parse(body).SelectToken("api").ToObject<GetGamesByDateDtoResponse>();
-                return games;
-            }
+            var response = await _repository.GetGamesByDate(date);
+            var mappedGames = _mapper.Convert(response);
+            return mappedGames;
+
         }
     }
 }
