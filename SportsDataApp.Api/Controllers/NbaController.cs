@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SportsData.Application.Services.Nba;
-using SportsData.Infrastructure.Dtos.NbaApi;
-using unirest_net.http;
+using SportsData.Core.Entities.Nba;
 
 namespace SportsDataApp.Api.Controllers
 {
@@ -22,11 +18,13 @@ namespace SportsDataApp.Api.Controllers
         }
 
         [HttpGet("games/{date}")]
-        public async Task<GetGamesByDateDtoResponse> GetGamesByDate(DateTime date)
+        public async Task<List<Game>> GetGamesByDate(DateTime date)
         {
             // var rundownApiUrl = $"https://therundown-therundown-v1.p.rapidapi.com/sports/{nbaSportsId}/events/{date}?includescores&offset=0";
             var response = await _service.GetGamesByDate(date);
             return response;
         }
+
+
     }
 }

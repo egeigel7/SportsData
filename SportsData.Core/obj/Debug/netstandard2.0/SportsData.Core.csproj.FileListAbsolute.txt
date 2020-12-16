@@ -1,8 +1,0 @@
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\bin\Debug\netstandard2.0\SportsData.Core.deps.json
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\bin\Debug\netstandard2.0\SportsData.Core.dll
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\bin\Debug\netstandard2.0\SportsData.Core.pdb
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\obj\Debug\netstandard2.0\SportsData.Core.AssemblyInfoInputs.cache
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\obj\Debug\netstandard2.0\SportsData.Core.AssemblyInfo.cs
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\obj\Debug\netstandard2.0\SportsData.Core.dll
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\obj\Debug\netstandard2.0\SportsData.Core.pdb
-C:\Users\egeigel\Documents\EdwardsStuff\PracticeCoding\SportsDataApp\SportsData.Core\obj\Debug\netstandard2.0\SportsData.Core.csproj.CoreCompileInputs.cache

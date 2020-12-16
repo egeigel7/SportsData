@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SportsData.Application.Mappers.Nba;
 using SportsData.Application.Services.Nba;
 
 namespace SportsData.Application.Extensions
@@ -8,6 +9,7 @@ namespace SportsData.Application.Extensions
         public static void AddSportsDataApplicationLayer(this IServiceCollection services)
         {
             services.AddTransient<INbaApiService, NbaApiService>();
+            services.AddTransient<IGetGamesByDateResponseMapper, GetGamesByDateResponseMapper>();
         }
     }
 }
