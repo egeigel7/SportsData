@@ -8,7 +8,7 @@ namespace SportsData.Application.Extensions
     {
         public static void AddSportsDataApplicationLayer(this IServiceCollection services)
         {
-            services.AddTransient<INbaApiService, NbaApiService>();
+            services.AddTransient<INbaService, NbaService>();
             services.AddTransient<IGetGamesByDateResponseMapper, GetGamesByDateResponseMapper>();
         }
     }
