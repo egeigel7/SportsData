@@ -32,3 +32,12 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1 (4323dbf0-1e09-4de6-ad62-9a4f16db0ad0)'
+    appType: 'webApp'
+    appName: 'SportsDataApi'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    appSettings: '-appConfigUri https://sports-data-config.azconfig.io'
+    deploymentMethod: 'auto'
