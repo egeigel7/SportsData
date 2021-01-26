@@ -16,11 +16,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
+# task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+#- task: NuGetCommand@2
+#  inputs:
+#    restoreSolution: '$(solution)'
 
 #- task: VSBuild@1
 #  inputs:
@@ -38,6 +38,11 @@ steps:
 - task: UseDotNet@2
   inputs:
     version: '3.1.x'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
 - task: DotNetCoreCLI@2
   displayName: Publish
   inputs:
