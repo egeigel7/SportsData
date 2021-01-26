@@ -40,7 +40,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: '$(projectDirectory)\SportsDataApp.Api.csproj'
+    projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
 
