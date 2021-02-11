@@ -38,10 +38,10 @@ namespace SportsData.Application.Mappers.Nba
                     game.SeasonStage,
                     game.StatusShortGame,
                     game.StatusGame,
-                    new ContestantsSeasonRecord(game.VTeam.TeamId, game.VTeam.ShortName, game.VTeam.FullName, game.VTeam.NickName, game.VTeam.Logo, "2-10", "10-2", "6-6", "2",
+                    new ContestantsSeasonRecord(game.VTeam.TeamId, game.VTeam.ShortName, game.VTeam.FullName, game.VTeam.NickName, game.VTeam.Logo, "", "", "",
                         new Score(game.VTeam.Score.Points)
                     ),
-                    new ContestantsSeasonRecord(game.HTeam.TeamId, game.HTeam.ShortName, game.HTeam.FullName, game.HTeam.NickName, game.HTeam.Logo, "8-4", "7-5", "10-2", "1",
+                    new ContestantsSeasonRecord(game.HTeam.TeamId, game.HTeam.ShortName, game.HTeam.FullName, game.HTeam.NickName, game.HTeam.Logo, "", "", "",
                         new Score(game.HTeam.Score.Points)
                     )
                 );

@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using SportsData.Infrastructure.Dtos.NbaDb;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -49,6 +50,62 @@ namespace SportsData.Infrastructure.Repositories.NbaDb
             {
                 // Read the item to see if it exists.  
                 ItemResponse<NbaTeamPerformanceDbDto> teamPerformanceResponse = await TeamsContainer.ReadItemAsync<NbaTeamPerformanceDbDto>(id, partitionKey);
+                // Console.WriteLine("Item in database with id: {0} already exists\n", teamPerformanceResponse.Resource);
+                return teamPerformanceResponse.Resource;
+            }
+            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                throw;
+            }
+        }
+
+        public List<NbaGameDbDto> GetGamesByDate(DateTime date)
+        {
+            //var key = string.Join("-", LEAGUE_NAME, dto.TeamName.Trim().ToUpperInvariant());
+            //var partitionKey = new PartitionKey(key);
+            //var id = $"{dto.SeasonYear.Trim().ToUpperInvariant()}-{key}";
+            string id = date.ToString("yyyyMMdd");
+            try
+            {
+                // Read the item to see if it exists.  
+                List<NbaGameDbDto> gamesResponse = GamesContainer.GetItemLinqQueryable<NbaGameDbDto>(true)
+                                                                                .Where(g => g.id.Equals(id))
+                                                                                .ToList();
+                // Console.WriteLine("Item in database with id: {0} already exists\n", teamPerformanceResponse.Resource);
+                return gamesResponse;
+            }
+            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                throw;
+            }
+        }
+
+        public List<NbaGameDbDto> GetUpcomingGames()
+        {
+            try
+            {
+                // Read the item to see if it exists.  
+                List<NbaGameDbDto> gamesResponse = GamesContainer.GetItemLinqQueryable<NbaGameDbDto>(true)
+                                                                                .Where(g => g.status.Equals("UPCOMING"))
+                                                                                .ToList();
+                // Console.WriteLine("Item in database with id: {0} already exists\n", teamPerformanceResponse.Resource);
+                return gamesResponse;
+            }
+            catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            {
+                throw;
+            }
+        }
+
+        public async Task<NbaGameDbDto> GetGameAsync(DateTime date, string teamName)
+        {
+            var key = string.Join("-", LEAGUE_NAME, teamName.Trim().ToUpperInvariant());
+            var partitionKey = new PartitionKey(key);
+            var id = date.ToString("yyyyMMdd");
+            try
+            {
+                // Read the item to see if it exists.  
+                ItemResponse<NbaGameDbDto> teamPerformanceResponse = await GamesContainer.ReadItemAsync<NbaGameDbDto>(id, partitionKey);
                 // Console.WriteLine("Item in database with id: {0} already exists\n", teamPerformanceResponse.Resource);
                 return teamPerformanceResponse.Resource;
             }

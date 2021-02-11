@@ -12,5 +12,6 @@ namespace SportsData.Application.Services.Nba
     {
         Task<List<Matchup>> GetGamesByDate(DateTime date);
         Task<TeamSeason> GetSeasonStatsByTeamName(GetStatsByTeamNameRequestDto dto);
+        Task<List<Matchup>> GetUpcomingGames();
     }
 }

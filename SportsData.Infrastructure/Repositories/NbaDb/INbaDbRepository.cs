@@ -9,5 +9,8 @@ namespace SportsData.Infrastructure.Repositories.NbaDb
     public interface INbaDbRepository
     {
         Task<NbaTeamPerformanceDbDto> GetNbaTeamSeasonStats(GetNbaTeamSeasonStatsRequestDto request);
+        List<NbaGameDbDto> GetGamesByDate(DateTime date);
+        Task<NbaGameDbDto> GetGameAsync(DateTime date, string teamName);
+        List<NbaGameDbDto> GetUpcomingGames();
     }
 }

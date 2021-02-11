@@ -7,7 +7,7 @@ namespace SportsData.Application.Entities
 {
     public class ContestantsSeasonRecord
     {
-        public ContestantsSeasonRecord(string teamId, string shortName, string fullName, string nickName, string logo, string record, string ats, string overUnder, string rank, Score score)
+        public ContestantsSeasonRecord(string teamId, string shortName, string fullName, string nickName, string logo, string record, string ats, string overUnder, Score score)
         {
             TeamId = teamId;
             ShortName = shortName;
@@ -17,7 +17,6 @@ namespace SportsData.Application.Entities
             Record = record;
             ATS = ats;
             OverUnder = overUnder;
-            Rank = rank;
             Score = score;
         }
 
@@ -29,7 +28,12 @@ namespace SportsData.Application.Entities
         public string Record { get; set; }
         public string ATS { get; set; }
         public string OverUnder { get; set; }
-        public string Rank { get; set; }
+        public string GameSpread { get; set; }
+        public string GameOverUnder { get; set; }
+        public int OverOdds { get; set; }
+        public int UnderOdds { get; set; }
+        public int SpreadOdds { get; set; }
+
         public Score Score { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SportsData.Application.Entities;
 using SportsData.Application.Entities.Dtos;
 using SportsData.Application.Mappers.Nba;
 using SportsData.Core.Entities.Nba;
@@ -31,7 +32,45 @@ namespace SportsData.Application.Services.Nba
         {
             var response = await _repository.GetGamesByDate(date);
             var mappedGames = _mapper.Convert(response);
+            foreach (var matchup in mappedGames)
+            {
+                GetNbaTeamSeasonStatsRequestDto homeDbDto = new GetNbaTeamSeasonStatsRequestDto(matchup.SeasonYear, matchup.HomeTeam.FullName);
+                var homeTeam = await _nbaDbRepository.GetNbaTeamSeasonStats(homeDbDto);
+                GetNbaTeamSeasonStatsRequestDto visitingDbDto = new GetNbaTeamSeasonStatsRequestDto(matchup.SeasonYear, matchup.VisitingTeam.FullName);
+                var visitingTeam = await _nbaDbRepository.GetNbaTeamSeasonStats(visitingDbDto);
+                matchup.HomeTeam.Record = $"{homeTeam.Records.SeasonWins}-{homeTeam.Records.SeasonLosses}";
+                matchup.HomeTeam.ATS = $"{homeTeam.Records.ATSWins}-{homeTeam.Records.SeasonLosses}-{homeTeam.Records.ATSPushes}";
+                matchup.HomeTeam.OverUnder = $"{homeTeam.Records.OverCount}-{homeTeam.Records.UnderCount}-{homeTeam.Records.OverUnderPushes}";
+                matchup.VisitingTeam.Record = $"{visitingTeam.Records.SeasonWins}-{visitingTeam.Records.SeasonLosses}";
+                matchup.VisitingTeam.ATS = $"{visitingTeam.Records.ATSWins}-{visitingTeam.Records.SeasonLosses}-{visitingTeam.Records.ATSPushes}";
+                matchup.VisitingTeam.OverUnder = $"{visitingTeam.Records.OverCount}-{visitingTeam.Records.UnderCount}-{visitingTeam.Records.OverUnderPushes}";
+            }
             return mappedGames;
+        }
+
+        public async Task<List<Matchup>> GetUpcomingGames()
+        {
+            DateTime todaysDate = DateTime.UtcNow;
+            if (todaysDate.Hour > 15)
+                todaysDate = todaysDate.AddDays(1);
+            var upcomingGames = await GetGamesByDate(todaysDate);
+            // List<UpcomingMatchup> mappedGames = new List<UpcomingMatchup>();
+            foreach (var matchup in upcomingGames)
+            {
+                var upcomingHomeTeam = await _nbaDbRepository.GetGameAsync(todaysDate, matchup.HomeTeam.FullName);
+                matchup.HomeTeam.GameOverUnder = upcomingHomeTeam.overUnder.Total;
+                matchup.HomeTeam.OverOdds = upcomingHomeTeam.overUnder.OverOdds;
+                matchup.HomeTeam.UnderOdds = upcomingHomeTeam.overUnder.UnderOdds;
+                matchup.HomeTeam.GameSpread = upcomingHomeTeam.spread.Value;
+                matchup.HomeTeam.SpreadOdds = upcomingHomeTeam.spread.Odds;
+                var upcomingVisitingTeam = await _nbaDbRepository.GetGameAsync(todaysDate, matchup.VisitingTeam.FullName);
+                matchup.VisitingTeam.GameOverUnder = upcomingVisitingTeam.overUnder.Total;
+                matchup.VisitingTeam.OverOdds = upcomingVisitingTeam.overUnder.OverOdds;
+                matchup.VisitingTeam.UnderOdds = upcomingVisitingTeam.overUnder.UnderOdds;
+                matchup.VisitingTeam.GameSpread = upcomingVisitingTeam.spread.Value;
+                matchup.VisitingTeam.SpreadOdds = upcomingVisitingTeam.spread.Odds;
+            }
+            return upcomingGames;
         }
 
         public async Task<TeamSeason> GetSeasonStatsByTeamName(GetStatsByTeamNameRequestDto dto)

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SportsData.Core.Entities.Nba;
 using System;
 
 namespace SportsData.Infrastructure.Dtos.NbaDb
@@ -6,7 +7,7 @@ namespace SportsData.Infrastructure.Dtos.NbaDb
     public class NbaTeamPerformanceDbDto
     {
         private const string LEAGUE_NAME = "NBA";
-        public NbaTeamPerformanceDbDto(string seasonYear, string shortName, string fullName, string nickname, string logoUrl, int gamesPlayed,NbaTeamSeasonStatsDbDto stats)
+        public NbaTeamPerformanceDbDto(string seasonYear, string shortName, string fullName, string nickname, string logoUrl, int gamesPlayed, Records records, NbaTeamSeasonStatsDbDto stats)
         {
             SeasonYear = seasonYear ?? throw new ArgumentNullException(nameof(seasonYear));
             ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
@@ -14,6 +15,7 @@ namespace SportsData.Infrastructure.Dtos.NbaDb
             Nickname = nickname ?? throw new ArgumentNullException(nameof(nickname));
             LogoUrl = logoUrl ?? throw new ArgumentNullException(nameof(logoUrl));
             GamesPlayed = gamesPlayed;
+            Records = records;
             Stats = stats ?? throw new ArgumentNullException(nameof(stats));
         }
         [JsonProperty("id")]
@@ -32,6 +34,8 @@ namespace SportsData.Infrastructure.Dtos.NbaDb
         public string LogoUrl { get; }
         [JsonProperty("gamesPlayed")]
         public int GamesPlayed { get; set; }
+        [JsonProperty("records")]
+        public Records Records { get; set; }
         [JsonProperty("stats")]
         public NbaTeamSeasonStatsDbDto Stats { get; }
     }

@@ -20,10 +20,16 @@ namespace SportsDataApp.Api.Controllers
             _service = service;
         }
 
+        [HttpGet("games")]
+        public async Task<List<Matchup>> GetUpcomingGames()
+        {
+            var response = await _service.GetUpcomingGames();
+            return response;
+        }
+
         [HttpGet("games/{date}")]
         public async Task<List<Matchup>> GetGamesByDate(DateTime date)
         {
-            // var rundownApiUrl = $"https://therundown-therundown-v1.p.rapidapi.com/sports/{nbaSportsId}/events/{date}?includescores&offset=0";
             var response = await _service.GetGamesByDate(date);
             return response;
         }
